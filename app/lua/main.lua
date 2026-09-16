@@ -23,11 +23,11 @@ root:clear_flag(lvgl.FLAG.SCROLLABLE)
 
 local dateLabel = lvgl.Label(root, {
     x = 0,
-    y = 118,
+    y = (lvgl.VER_RES() // 2) - 70,
     w = lvgl.HOR_RES(),
-    h = 90,
-    text = "----.--.--",
-    text_font = lvgl.Font(FONT_NAME, 40),
+    h = 62,
+    text = "----    --.--",
+    text_font = lvgl.Font(FONT_NAME, 48),
     text_color = TEXT_COLOR,
     text_align = lvgl.ALIGN.CENTER,
     bg_opa = 0,
@@ -36,18 +36,18 @@ local dateLabel = lvgl.Label(root, {
 
 local weekdayLabel = lvgl.Label(root, {
     x = 0,
-    y = 225,
+    y = (lvgl.VER_RES() // 2) + 8,
     w = lvgl.HOR_RES(),
-    h = 120,
-    text = "요일",
-    text_font = lvgl.Font(FONT_NAME, 80),
+    h = 90,
+    text = "Wednesday",
+    text_font = lvgl.Font(FONT_NAME, 68),
     text_color = TEXT_COLOR,
     text_align = lvgl.ALIGN.CENTER,
     bg_opa = 0,
     border_width = 0,
 })
 
-local weekdays = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" }
+local weekdays = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }
 local weekdayColors = {
     SUNDAY_COLOR,
     TEXT_COLOR,
@@ -60,9 +60,9 @@ local weekdayColors = {
 
 local function updateDate()
     local now = os.date("*t")
-    dateLabel:set { text = string.format("%04d.%02d.%02d", now.year, now.month, now.day) }
+    dateLabel:set { text = string.format("%04d    %02d.%02d", now.year, now.month, now.day) }
     weekdayLabel:set {
-        text = weekdays[now.wday] or "Day",
+        text = weekdays[now.wday] or "Weekday",
         text_color = weekdayColors[now.wday] or TEXT_COLOR,
     }
 end

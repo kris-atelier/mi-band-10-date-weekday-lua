@@ -5,13 +5,14 @@
   "orientation": 90,
   "orientationOptions": [90, 270],
   "display": {
-    "date": "YYYY.MM.DD",
-    "weekdayLanguage": "en_3char",
+    "date": "YYYY    MM.DD",
+    "weekdayLanguage": "en_full",
+    "layout": "two_line_full_screen",
     "fontWeight": "bold",
     "dateFont": "Helvetica-Bold",
-    "dateFontSize": 40,
+    "dateFontSize": 48,
     "weekdayFont": "Helvetica-Bold",
-    "weekdayFontSize": 80,
+    "weekdayFontSize": 68,
     "weekdayColors": {
       "sunday": "#FF3B30",
       "weekday": "#FFFFFF",
