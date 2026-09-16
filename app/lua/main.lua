@@ -45,12 +45,12 @@ local weekdayLabel = lvgl.Label(root, {
     border_width = 0,
 })
 
-local weekdays = { "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일" }
+local weekdays = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" }
 
 local function updateDate()
     local now = os.date("*t")
     dateLabel:set { text = string.format("%04d.%02d.%02d", now.year, now.month, now.day) }
-    weekdayLabel:set { text = weekdays[now.wday] or "요일" }
+    weekdayLabel:set { text = weekdays[now.wday] or "Day" }
 end
 
 updateDate()

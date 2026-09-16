@@ -14,8 +14,9 @@ YYYY.MM.DD
 ## 표시 원칙
 
 - 날짜: `YYYY.MM.DD`
-- 요일: 한국어 전체 표기
+- 요일: 영어 3글자 약어 (`Sun`–`Sat`)
 - 글꼴: `Helvetica` 요청을 기준으로 한 LVGL 폰트 이름
+- 화면 방향: `90°` 또는 `270°`만 허용
 - 검은 배경, 흰색 텍스트
 - 날씨, 메시지, 걸음 수, 심박 수, 배터리 등은 표시하지 않음
 - `dateDay` 데이터 소스를 갱신 트리거로 사용하고 날짜 값은 기기 로컬 시간에서 읽음
@@ -47,6 +48,13 @@ git submodule update --init --recursive
 이 프로젝트는 초기 개발본입니다. 공개된 예제에서 일반 Mi Band 10의 확정 `DeviceType`과 Helvetica 폰트 리소스 등록 방식이 함께 확인되지 않았으므로 `.fprj`에는 대상 식별자 placeholder를 남겼습니다. EasyFace/Mi Create의 실제 대상 기기 설정에서 `DeviceType`과 폰트 이름을 확인한 뒤 빌드해야 합니다.
 
 검증되지 않은 `.face` 바이너리는 포함하지 않습니다.
+
+미리보기 방향:
+
+```text
+src/preview.html?rotation=90
+src/preview.html?rotation=270
+```
 
 참고 저장소:
 
