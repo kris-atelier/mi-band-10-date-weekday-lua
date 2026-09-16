@@ -1,3 +1,6 @@
 [submodule "vendor/MiWatchLuaWatchfaces"]
 	path = vendor/MiWatchLuaWatchfaces
 	url = https://github.com/m0tral/MiWatchLuaWatchfaces.git
+[submodule "vendor/miband9-cli"]
+	path = vendor/miband9-cli
+	url = https://github.com/kris-atelier/miband9-cli.git
