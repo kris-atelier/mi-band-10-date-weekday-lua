@@ -1,0 +1,64 @@
+local lvgl = require("lvgl")
+local dataman = require("dataman")
+
+-- Mi Band 10 Date Weekday Lua
+-- This is a standalone date/weekday face, separate from the binary clock.
+local BACKGROUND = 0x000000
+local TEXT_COLOR = 0xFFFFFF
+local FONT_NAME = "Helvetica"
+
+local root = lvgl.Object(nil, {
+    x = 0,
+    y = 0,
+    w = lvgl.HOR_RES(),
+    h = lvgl.VER_RES(),
+    bg_color = BACKGROUND,
+    bg_opa = lvgl.OPA(100),
+    border_width = 0,
+    pad_all = 0,
+})
+root:clear_flag(lvgl.FLAG.SCROLLABLE)
+
+local dateLabel = lvgl.Label(root, {
+    x = 0,
+    y = 118,
+    w = lvgl.HOR_RES(),
+    h = 90,
+    text = "----.--.--",
+    text_font = lvgl.Font(FONT_NAME, 34),
+    text_color = TEXT_COLOR,
+    text_align = lvgl.ALIGN.CENTER,
+    bg_opa = 0,
+    border_width = 0,
+})
+
+local weekdayLabel = lvgl.Label(root, {
+    x = 0,
+    y = 225,
+    w = lvgl.HOR_RES(),
+    h = 120,
+    text = "요일",
+    text_font = lvgl.Font(FONT_NAME, 72),
+    text_color = TEXT_COLOR,
+    text_align = lvgl.ALIGN.CENTER,
+    bg_opa = 0,
+    border_width = 0,
+})
+
+local weekdays = { "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일" }
+
+local function updateDate()
+    local now = os.date("*t")
+    dateLabel:set { text = string.format("%04d.%02d.%02d", now.year, now.month, now.day) }
+    weekdayLabel:set { text = weekdays[now.wday] or "요일" }
+end
+
+updateDate()
+dataman.subscribe("dateDay", root, function()
+    updateDate()
+end)
+
+pageOnPause = function() end
+pageOnResume = function()
+    updateDate()
+end

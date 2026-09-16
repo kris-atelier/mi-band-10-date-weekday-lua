@@ -1,0 +1,22 @@
+{
+  "name": "Mi Band 10 Date Weekday Lua",
+  "device": "Mi Band 10",
+  "canvas": { "width": 212, "height": 520, "background": "#000000" },
+  "display": {
+    "date": "YYYY.MM.DD",
+    "weekdayLanguage": "ko",
+    "dateFont": "Helvetica",
+    "dateFontSize": 34,
+    "weekdayFont": "Helvetica",
+    "weekdayFontSize": 72,
+    "dataRefresh": "dateDay"
+  },
+  "features": {
+    "binaryClock": false,
+    "weather": false,
+    "messages": false,
+    "steps": false,
+    "heartRate": false,
+    "battery": false
+  }
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Mi Band 10 Date Weekday Lua</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #202020; }
+  .band { width: 212px; height: 520px; display: grid; place-items: center; background: #000; border-radius: 28px; color: #fff; font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; text-align: center; }
+  .date-view { display: grid; gap: 24px; align-content: center; }
+  .date { font-size: 34px; line-height: 1; }
+  .weekday { font-size: 72px; line-height: 1; }
+</style>
+<main class="band" aria-label="Date and weekday watchface preview">
+  <div class="date-view">
+    <div class="date" id="date"></div>
+    <div class="weekday" id="weekday"></div>
+  </div>
+</main>
+<script>
+  const date = document.querySelector('#date');
+  const weekday = document.querySelector('#weekday');
+  const weekdayNames = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+  function render() {
+    const now = new Date();
+    date.textContent = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
+    weekday.textContent = weekdayNames[now.getDay()];
+  }
+  render();
+  setInterval(render, 60 * 1000);
+</script>
