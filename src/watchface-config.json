@@ -7,10 +7,16 @@
   "display": {
     "date": "YYYY.MM.DD",
     "weekdayLanguage": "en_3char",
-    "dateFont": "Helvetica",
-    "dateFontSize": 34,
-    "weekdayFont": "Helvetica",
-    "weekdayFontSize": 72,
+    "fontWeight": "bold",
+    "dateFont": "Helvetica-Bold",
+    "dateFontSize": 40,
+    "weekdayFont": "Helvetica-Bold",
+    "weekdayFontSize": 80,
+    "weekdayColors": {
+      "sunday": "#FF3B30",
+      "weekday": "#FFFFFF",
+      "saturday": "#248BFF"
+    },
     "dataRefresh": "dateDay",
     "orientationRule": "90_or_270_only"
   },
